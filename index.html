@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>验收工作台</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="schedule.css">
+<link rel="stylesheet" href="no-ai.css">
+</head>
+<body>
+<div class="grain">
+</div>
+<header>
+<a class="brand" href="#overview">
+<span>验收</span>工作台 <i>v1.0</i>
+</a>
+<nav>
+<a href="#overview">今日看板</a>
+<a href="#schedule">排期</a>
+<a href="#ideas">灵感池</a>
+<a href="#acceptance">验收</a>
+</nav>
+<button class="ink" data-modal="issue">＋ 提交问题</button>
+</header>
+<main>
+<section id="overview" class="page">
+<div class="hero">
+<div>
+<p class="eyebrow">2026.08.13 · WED · PROJECT PULSE</p>
+<h1>让每一次验收，<br>都成为上线的底气。</h1>
+<p class="lead">一个团队共用的项目地图：排期、需求、验收问题和修复进度都留下清晰的下一步。</p>
+</div>
+<aside class="signal">
+<span class="pulse">
+</span>
+<p>本周发布 · 08.15</p>
+<strong>
+<span id="openCount">0</span> 个问题<br>等待处理</strong>
+<small>验收进度 <b id="progressText">0%</b>
+</small>
+<progress id="progress" value="0" max="100">
+</progress>
+</aside>
+</div>
+<div class="section-title">
+<h2>现在需要你确认</h2>
+<span id="todayCount">0 项</span>
+</div>
+<div id="todayList" class="list">
+</div>
+<div class="section-title">
+<h2>项目脉搏</h2>
+<a href="#schedule">查看完整排期 →</a>
+</div>
+<div class="metrics">
+<article>
+<b id="plannedCount">0</b>
+<span>已排期需求</span>
+</article>
+<article>
+<b id="ideaCount">0</b>
+<span>等待讨论的灵感</span>
+</article>
+<article>
+<b id="fixedCount">0</b>
+<span>本周已验证修复</span>
+</article>
+</div>
+</section>
+<section id="schedule" class="page">
+<div class="title-row">
+<div>
+<p class="eyebrow">PROJECT ROADMAP</p>
+<h1>排期是一种承诺。</h1>
+<p>从灵感池挑选值得做的事，再把时间和负责人说清楚。</p>
+</div>
+<button class="ink" data-modal="plan">＋ 新建排期</button>
+</div>
+<div class="requirement-bar"><span>共 <b id="requirementCount">0</b> 条需求单</span><button class="filter-plan chosen">全部</button><button class="filter-plan">需求评审</button><button class="filter-plan">开发中</button><button class="filter-plan">待验收</button></div>
+<div id="planRows" class="ticket-list"></div>
+<div class="section-title">
+<h2>待安排的需求单</h2>
+<a href="#ideas">从灵感池创建 →</a>
+</div>
+<div id="unplanned" class="chips">
+</div>
+</section>
+<section id="ideas" class="page">
+<div class="title-row">
+<div>
+<p class="eyebrow">IDEA INBOX</p>
+<h1>灵感先被看见，<br>再决定要不要做。</h1>
+<p>一句话、链接或一张截图，都可以成为团队下一项需求。</p>
+</div>
+<button class="ink" data-modal="idea">＋ 记录灵感</button>
+</div>
+<div id="ideaGrid" class="idea-grid">
+</div>
+</section>
+<section id="acceptance" class="page">
+<div class="title-row">
+<div>
+<p class="eyebrow">ACCEPTANCE CENTER</p>
+<h1>验收不是一句“有问题”。</h1>
+<p>截图、问题描述、优先级和负责人，构成每个可以被修复的问题。</p>
+</div>
+<button class="ink" data-modal="issue">＋ 提交问题</button>
+</div>
+<div class="filter">
+<button class="chosen" data-filter="all">全部</button>
+<button data-filter="blocker">阻塞</button>
+<button data-filter="open">待处理</button>
+<button data-filter="fixed">已修复</button>
+<input id="search" placeholder="搜索问题">
+</div>
+<div id="issueList" class="issue-list">
+</div>
+</section>
+<div hidden id="aiCount"></div><div hidden id="aiQueue"></div><div hidden id="aiDetail"></div>
+</main>
+<dialog id="modal">
+<form method="dialog" id="form">
+<button class="x" type="button" aria-label="关闭弹窗" onclick="this.closest('dialog').close()">×</button>
+<p class="eyebrow" id="formLabel">NEW ITEM</p>
+<h2 id="formTitle">记录问题</h2>
+<div id="formFields">
+</div>
+<button class="ink" value="default" id="save">保存</button>
+</form>
+</dialog>
+<div id="toast" class="toast">
+</div>
+<script type="module" src="cloud-sync.js"></script>
+<script src="script.js"></script>
+<script src="schedule.js"></script>
+</body>
+</html>

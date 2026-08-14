@@ -20,7 +20,14 @@
         if (!issue) return;
         issue.status = select.value;
         localStorage.setItem(key, JSON.stringify(data));
-        location.reload();
+        /* Keep the active filter selected and redraw only the issue board. */
+        if (typeof db !== 'undefined') {
+          const liveIssue = db.issues?.find(item => item.title === title);
+          if (liveIssue) liveIssue.status = select.value;
+          render();
+        } else {
+          location.reload();
+        }
       });
     });
   };

@@ -21,10 +21,6 @@
     const data = JSON.parse(localStorage.getItem(key) || '{}');
     data.issues = (data.issues || []).filter(item => item.title !== title);
     localStorage.setItem(key, JSON.stringify(data));
-    row.remove();
-    const toast = document.querySelector('#toast');
-    toast.textContent = '验收问题已删除';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2200);
+    location.reload();
   });
 })();

@@ -133,6 +133,10 @@
 </dialog>
 <div id="toast" class="toast">
 </div>
+<script>
+/* A blank or damaged browser cache must never hide the acceptance backlog. */
+(()=>{const key='yanshou-db';try{const saved=JSON.parse(localStorage.getItem(key)||'{}');if(!Array.isArray(saved.issues)||saved.issues.length===0)localStorage.removeItem(key)}catch{localStorage.removeItem(key)}})();
+</script>
 <script src="walkthrough-seed-embedded.js"></script>
 <script src="script.js"></script>
 <script>

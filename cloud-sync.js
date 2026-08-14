@@ -1,4 +1,4 @@
-import cloudbase from 'https://cdn.jsdelivr.net/npm/@cloudbase/js-sdk@3.7.1/dist/index.esm.js';
+import cloudbase from 'https://esm.sh/@cloudbase/js-sdk@3.7.1?bundle';
 
 const env = 'vuslat-19-d8gqn7f0k9161956c';
 const projectId = 'brand-site-3';
